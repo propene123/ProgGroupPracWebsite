@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+<title>RoryBaxter Test Page 1</title>
+		<meta charset="utf-8">
+		<meta name="author" content="Rory Baxter - pvgb53">
+		<html lang="en-UK">
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+		<h1>AI - How computing will change society</h1>
+		<ul>Reasons why AI will change society
+			<li>
+				<a href="https://en.wikipedia.org/wiki/Automation" title="Wikipedia article on Automation">
+					Automation
+				</a>
+			</li>
+			<li>
+				<a href="https://en.wikipedia.org/wiki/Self-driving_car" title="Wikipedia article on Self Driving Cars">
+					Self Driving Cars
+				</a>
+			</li>
+			<li>
+				<a href="https://en.wikipedia.org/wiki/Computer_vision" title="Wikipedia article on image recognition">
+					Image Recognistion
+				</a>
+			</li>
+			<p>
+				There are many reasons why Computing is important, but <span title="Artificial Intelligence">AI</span> is going to be one of the most important in the upcoming years
+			</p>
+		</ul>
+	</body>
+</html>
