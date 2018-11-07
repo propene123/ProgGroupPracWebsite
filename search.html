@@ -3,16 +3,22 @@
 	<head>
 		<title>Search</title>
 		
+		<meta charset="utf-8">
+		<html lang="en-UK">
+		
 		<!-- Links to external Semantic and jQuery stylesheets and scripts. -->
 		<link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+		
+		<script src="js/searchBox.js"></script>
+		<script src="js/show.js"></script>
 	</head>
 	
 	<body>
 		<div class="ui menu">
 			<a class="header item" href="index.html"><i class="home icon"></i>Home</a>
-			<a class="item" href="bigben.html>Big Ben</a>
+			<a class="item" href="bigben.html">Big Ben</a>
 			<a class="item" href="littleben.html">Little Ben</a>
 			<a class="item" href="rory.html">Rory</a>
 			<div class="right menu">
@@ -20,64 +26,21 @@
 					<div class="ui icon input">
 						<input type="text" placeholder="Search" id="SearchBox">
 						<i class="search icon"></i>
-						<!-- TODO: Get this to work. Element needs to be reactive -->
-						<script>
-							var input = document.getElementById("SearchBox");
-							input.addEventListener("keyup", funciton(event){
-								if (event.keyCode === 13){
-									localStorage.setItem("search", document.getElementById("SearchBox").value;
-									location.href = "search.html";
-								}
-							});
-						</script>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="ui container">
 			<!-- YOUR CONTENT HERE -->
-			<p><a href="rory.html" id="roryLink">Robotics</a></p>
-			<p><a href="bigben.html" id="bigbenLink">Internet</a></p>
-			<p><a href="littleben.html" id="littlebenLink">Personal Assistants</a></p>
-			<script>
-				var searchedValue = localStorage.getItem("search");
-				
-				if (searchedValue.toLowerCase().includes("robot")){
-					document.getElementById("roryLink").style.visibility = "visible";
-				} else {
-					document.getElementById("roryLink").style.visibility = "hidden";
-				};
-				if (searchedValue.toLowerCase().includes("net") || searchedValue.toLowerCase().includes("web")){
-					document.getElementById("bigbenLink").style.visibility = "visible";
-				} else {
-					document.getElementById("bigbenLink").style.visibility = "hidden";
-				};
-				if (searchedValue.toLowerCase().includes("alexa") || searchedValue.toLowerCase().includes("siri") || searchedValue.toLowerCase().includes("assistants")){
-					document.getElementById("littlebenLink").style.visibility = "visible";
-				} else {
-					document.getElementById("littlebenLink").style.visibility = "hidden";
-				};
-				
-				alert(searchedValue);
-			</script>
+			<h1 class="ui header">Search Results</h1>
+			<p id="results">0 results found</p>
+			<p id="roryLink"><a href="rory.html">Robotics</a></p>
+			<p id="bigBenLink"><a href="bigben.html">Internet</a></p>
+			<p id="littleBenLink"><a href="littleben.html">Personal Assistants</a></p>
 			<div class="ui card">
 				<div class="image">
 					<!-- TODO: Add image! -->
 					<img src="">
-				</div>
-				<div class="content">
-					<div class="header">Author</div>
-					<div class="description">
-						This is a description of the author that made this page. This person is not very nice, and smells funny.
-					</div>
-					<div class="extra content">
-						<span class="left floated">
-							<i class="github icon"></i>
-							<!-- TODO: Link to GitHub account, change from "GitHub Account" to username,
-							and maybe add your own accounts in as well? -->
-							<a href="#">GitHub Account</a>
-						</span>
-					</div>
 				</div>
 			</div>
 		</div>
