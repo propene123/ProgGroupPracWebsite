@@ -21,20 +21,8 @@
 
 			.contender {
 				position: absolute;
-				width: 20px;
-				height: 20px;
-			}
-
-			.contender.red {
-				background: red;
-			}
-
-			.contender.blue {
-				background: blue;
-			}
-
-			.contender.green {
-				background: green;
+				width: 40px;
+				height: 40px;
 			}
 		</style>
 	</head>
@@ -64,10 +52,14 @@
 			<div id="bb-content-1">
 				<h1 id="header-above-map">The race is about to start!</h1>
 				<h1 id="bb-countdown">3...</h1>
-				<div class="contender green"></div>
-				<div class="contender blue"></div>
-				<div class="contender red"></div>
+				<img class="contender" src="pics/18th-century-ship.png">
+				<img class="contender" src="pics/cruise-liner.png">
+				<img class="contender" src="pics/fibre-optic-cable.png">
 				<div class="ui center aligned fluid container"><img src="pics/atlantic_ocean.png" id="bb-map"></div>
+				<div id="bb-content-1-before-results">
+					<i>By the way, this is in real time. So you may be here a while... or you can click the button to skip to the end!</i>
+					<button class="ui right floated primary button" id="bb-skip">Skip</button>
+				</div>
 				<div id="bb-content-1-intro">
 					<p><strong>Each contender has to deliver a letter from Southampton to New York, but how long will they take??</strong></p>
 					<h2>The contenders:</h2>
@@ -104,6 +96,9 @@
 					</div>
 					<button class="ui fluid blue button" id="race-begin">Let the race... begin!</button>
 				</div>
+			</div>
+			<div id="bb-content-2">
+				<h1>Hi :3</h1>
 			</div>
 			
 			<div class="ui card">

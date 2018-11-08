@@ -1,5 +1,6 @@
 var raceBegun = false;
 var userBet = 0;
+var intervalIndex = 0;
 
 // Race constants.
 const distanceInKilometers = 5512.63;
@@ -17,6 +18,24 @@ var contenderProgress = [0.0, 0.0, 0.0];
 // Where does the race start, and what is the relative vector to the end position?
 var startPos = {left: 0, top: 0};
 var dPos = {left: 0, top: 0};
+
+// Call when the race is done.
+function onRaceDone()
+{
+	// Stop the interval.
+	clearInterval(intervalIndex);
+
+	$(".contender").hide();
+
+	// Do animations to hide the first page, and reveal the second!
+	$("#bb-content-1").animate({
+		height: "hide"
+	}, 1000);
+
+	$("#bb-content-2").animate({
+		height: "show"
+	}, 1000);
+}
 
 // Advance the distance by one second.
 function advanceDistance() {
@@ -40,11 +59,20 @@ function advanceRace() {
 	
 	advanceDistance();
 
+	// Check to see if the race is done - if the user waits a few weeks, that is...
+	var raceDone = true;
+
 	// Calculate the positions for each contender.
 	for (var i = 0; i < contenderProgress.length; i++) {
 		$(".contender").eq(i).css("left", startPos.left + contenderProgress[i] * dPos.left);
 		$(".contender").eq(i).css("top", startPos.top + contenderProgress[i] * dPos.top);
+	
+		if (!contenderDone[i])
+			raceDone = false;
 	}
+
+	if (raceDone)
+		onRaceDone();
 }
 
 // Called when the page loads in.
@@ -52,6 +80,8 @@ $(function(){
 
 	$("#bb-countdown").hide();
 	$(".contender").hide();
+	$("#bb-content-1-before-results").hide();
+	$("#bb-content-2").hide();
 
 	// Called when the race begins.
 	$("#race-begin").click(function(){
@@ -80,8 +110,8 @@ $(function(){
 			var countdownHeight = $("#bb-countdown").height();
 
 			// Set the race starting position and relative vector.
-			startPos.left = mapPosition.left + mapWidth * 0.67;
-			startPos.top = mapPosition.top + mapHeight * 0.22;
+			startPos.left = mapPosition.left + mapWidth * 0.65;
+			startPos.top = mapPosition.top + mapHeight * 0.19;
 
 			var endPos = {left: 0, top: 0};
 
@@ -123,12 +153,18 @@ $(function(){
 
 				// Called when the countdown animation is complete.
 				$("#header-above-map").html("And we're off! Wait... the cable's already finished???");
+				$("#bb-content-1-before-results").show();
 
 				// Start the race immediately, and then advance the race every second.
 				advanceRace();
-				setInterval(advanceRace, 1000);
+				intervalIndex = setInterval(advanceRace, 1000);
 			});
 		}
+	});
+
+	// Called when the user wants to skip the race.
+	$("#bb-skip").click(function(){
+		onRaceDone();
 	});
 
 });
