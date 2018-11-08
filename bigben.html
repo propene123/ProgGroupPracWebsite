@@ -10,6 +10,33 @@
 		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 		<script src="js/bigben.js"></script>
 		<script src="js/searchBox.js"></script>
+
+		<style>
+			#bb-countdown {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				font-size: 100px;
+			}
+
+			.contender {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+			}
+
+			.contender.red {
+				background: red;
+			}
+
+			.contender.blue {
+				background: blue;
+			}
+
+			.contender.green {
+				background: green;
+			}
+		</style>
 	</head>
 	
 	<body>
@@ -36,7 +63,11 @@
 
 			<div id="bb-content-1">
 				<h1 id="header-above-map">The race is about to start!</h1>
-				<div class="ui center aligned fluid container"><img src="pics/atlantic_ocean.png"></div>
+				<h1 id="bb-countdown">3...</h1>
+				<div class="contender green"></div>
+				<div class="contender blue"></div>
+				<div class="contender red"></div>
+				<div class="ui center aligned fluid container"><img src="pics/atlantic_ocean.png" id="bb-map"></div>
 				<div id="bb-content-1-intro">
 					<p><strong>Each contender has to deliver a letter from Southampton to New York, but how long will they take??</strong></p>
 					<h2>The contenders:</h2>
