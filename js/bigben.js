@@ -11,6 +11,8 @@ const contenderSpeedsInKilometersPerHour = [
 	distanceInKilometers/contenderTimesInHours[2]
 ];
 
+const contenderNames = ["18th Century Boat", "Cruise Liner", "TAT-8 Submarine Cable"];
+
 var currentDistances = [0.0, 0.0, 0.0];
 var contenderDone = [false, false, false];
 var contenderProgress = [0.0, 0.0, 0.0];
@@ -18,6 +20,19 @@ var contenderProgress = [0.0, 0.0, 0.0];
 // Where does the race start, and what is the relative vector to the end position?
 var startPos = {left: 0, top: 0};
 var dPos = {left: 0, top: 0};
+
+// Call when we move onto the "why" page.
+function onWhyPage()
+{
+	// Do animations to hide the second page, and reveal the third!
+	$("#bb-content-2").animate({
+		height: "hide"
+	}, 1000);
+
+	$("#bb-content-3").animate({
+		height: "show"
+	}, 1000);
+}
 
 // Call when the race is done.
 function onRaceDone()
@@ -35,6 +50,14 @@ function onRaceDone()
 	$("#bb-content-2").animate({
 		height: "show"
 	}, 1000);
+
+	// Show what the user bet on, and if they were correct or not.
+	$("#bb-user-bet").html(contenderNames[userBet]);
+
+	if (userBet == 2) {
+		$("#bb-bet-message").removeClass("negative").addClass("positive");
+		$("#bb-bet-correct").html("Your bet was correct!");
+	}
 }
 
 // Advance the distance by one second.
@@ -82,6 +105,7 @@ $(function(){
 	$(".contender").hide();
 	$("#bb-content-1-before-results").hide();
 	$("#bb-content-2").hide();
+	$("#bb-content-3").hide();
 
 	// Called when the race begins.
 	$("#race-begin").click(function(){
@@ -165,6 +189,11 @@ $(function(){
 	// Called when the user wants to skip the race.
 	$("#bb-skip").click(function(){
 		onRaceDone();
+	});
+
+	// Called when the user wants to move to the final page.
+	$("#bb-why-important").click(function(){
+		onWhyPage();
 	});
 
 });
