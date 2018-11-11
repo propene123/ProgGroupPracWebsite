@@ -1,4 +1,5 @@
 "use strict";
+$(function(){
 
 $("#alexa").hide();
 $("#bixby").hide();
@@ -66,4 +67,5 @@ action: function(text, value){
     $("#drop").dropdown("set selected",value);
     $("#drop").dropdown("toggle");
 }
+});
 });
