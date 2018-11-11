@@ -1,0 +1,28 @@
+{
+	"pages": [
+		{
+			"title": "Personal Assistants",
+			"author": "Benjamin Russell aka Little Ben",
+			"description": "A page about AI assistants",
+			"picture": "pics/Siri.png",
+			"tags": "alexa siri assistant ok google assistants",
+			"url": "littleben.html"
+		},
+		{
+			"title": "The Internet's contribution to society",
+			"author": "Benjamin Beddows aka Big Ben",
+			"description": "A page about the impact of internet communications",
+			"picture": "pics/atlantic_ocean.png",
+			"tags": "net web iot",
+			"url": "bigben.html"
+		},
+		{
+			"title": "Robots",
+			"author": "Rory Baxter",
+			"description": "A page about the impact of robotics in society",
+			"picture": "pics/automata_franklin_twitter.jpg",
+			"tags": "robot machine terminator",
+			"url": "rory.html"
+		}
+	]
+}

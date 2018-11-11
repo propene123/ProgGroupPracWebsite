@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>Big Ben</title>
-		
-		<meta charset="utf-8">
-		<html lang="en-UK">
 		
 		<!-- Links to external Semantic and jQuery stylesheets and scripts. -->
 		<link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-		
+		<script src="js/bigben.js"></script>
 		<script src="js/searchBox.js"></script>
+
+		<style>
+			#bb-countdown {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				font-size: 100px;
+			}
+
+			.contender {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+			}
+		</style>
 	</head>
 	
 	<body>
 		<div class="ui menu">
 			<a class="header item" href="index.html"><i class="home icon"></i>Home</a>
-			<a class="item" href="bigben.html">Big Ben</a>
+			<a class="active item" href="bigben.html">Big Ben</a>
 			<a class="item" href="littleben.html">Little Ben</a>
 			<a class="item" href="rory.html">Rory</a>
 			<div class="right menu">
@@ -32,7 +45,122 @@
 		<div class="ui container">
 			<!-- YOUR CONTENT HERE -->
 			
-			
+			<h1>The Internet's contribution to society</h1>
+			<h4>By Benjamin Beddows</h4>
+			<div class="ui divider"></div>
+
+			<div id="bb-content-1">
+				<h1 id="header-above-map">The race is about to start!</h1>
+				<h1 id="bb-countdown">3...</h1>
+				<img class="contender" src="pics/18th-century-ship.png">
+				<img class="contender" src="pics/cruise-liner.png">
+				<img class="contender" src="pics/fibre-optic-cable.png">
+				<div class="ui center aligned fluid container"><img src="pics/atlantic_ocean.png" id="bb-map"></div>
+				<div id="bb-content-1-before-results">
+					<i>By the way, this is in real time. So you may be here a while... or you can click the button to skip to the end!</i>
+					<button class="ui right floated primary button" id="bb-skip">Skip</button>
+				</div>
+				<div id="bb-content-1-intro">
+					<p><strong>Each contender has to deliver a letter from Southampton to New York, but how long will they take??</strong></p>
+					<h2>The contenders:</h2>
+					<ul>
+						<li>A wooden boat from the days of the American Revolution! <i>(This guy's the longest reigning champion, but will there be an upset??)</i></li>
+						<li>A modern-day ocean liner! <i>(This one's the underdog... will they win this race and send everyone home happy??)</i></li>
+						<li>The TAT-8 submarine fibre-optic cable! <i>(No one has any idea what this one's capable of... but we will find out soon!!)</i></li>
+					</ul>
+					<h2>Place your bets!</h2>
+					<p><strong>Who do you think will win this historic race, and take home the gold??</strong></p>
+					<div class="ui placeholder segment">
+						<div class="ui three column center aligned divided grid">
+							<div class="middle aligned row">
+								<div class="column">
+									<div class="ui radio checkbox">
+										<input type="radio" name="bet" checked="checked">
+										<label>The 18th Century Boat</label>
+									</div>
+								</div>
+								<div class="column">
+									<div class="ui radio checkbox">
+										<input type="radio" name="bet">
+										<label>The 21st Century Cruise Liner</label>
+									</div>
+								</div>
+								<div class="column">
+									<div class="ui radio checkbox">
+										<input type="radio" name="bet">
+										<label>The Submarine Cable</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button class="ui fluid blue button" id="race-begin">Let the race... begin!</button>
+				</div>
+			</div>
+			<div id="bb-content-2">
+				<h1>We have a new champion!</h1>
+				<table class="ui striped table">
+					<thead>
+						<tr>
+							<th>Contender</th>
+							<th>Position</th>
+							<th>Time Taken</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="positive">
+							<td>TAT-8 Submarine Cable</td>
+							<td>1st</td>
+							<td>0.000085714s <i>(Assuming a letter is around 3000 characters/bytes)</i></td>
+						</tr>
+						<tr>
+							<td>Cruise Liner</td>
+							<td>2nd</td>
+							<td>1 Week</td>
+						</tr>
+						<tr>
+							<td>18th Century Boat</td>
+							<td>3rd</td>
+							<td>6-12 Weeks</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="ui floating negative message" id="bb-bet-message">
+					<div class="header" id="bb-bet-correct">
+						Your bet was wrong!
+					</div>
+					<p>You bet on: <strong id="bb-user-bet">18th Century Boat</strong></p>
+				</div>
+				<button class="ui right floated primary button" id="bb-why-important">Why is this race so important?</button>
+			</div>
+			<div id="bb-content-3">
+				<div class="ui center aligned fluid container">
+					<div class="ui statistic">
+						<div class="value">99%</div>
+						<div class="label">of internet traffic goes through submarine cables</div>
+					</div>
+				</div>
+				<p>In 1988, The TAT-8 Cable was laid along the sea bed of the Atlantic Ocean, and was the first active use of fibre-optic technology. It allowed for any binary message to be sent across the Atlantic Ocean at a speed of 35MB/s. This allowed for near-instantaneous communication between <i>continents</i>.</p>
+				<p>This cable would then spark a light for a number of new technologies:</p>
+				<h2>International Communications & Telephone Calls</h2>
+				<ul>
+					<li>As said before, you could send any message you wanted at a very high speed.</li>
+					<li>You could now talk to your relatives across the world as if they were in the same country as you! <i>(Just at a higher price, depending on the provider)</i></li>
+				</ul>
+				<h2>The Development of the World Wide Web</h2>
+				<ul>
+					<li>IBM created a link between Cornell University and CERN using the TAT-8 cable.</li>
+					<li>This allowed Tim Berners-Lee a high-speed connection to the National Science Foundation Network in America, which aided the development of the World Wide Web immensely.</li>
+					<li>It also lead to the acceptance of the TCP/IP protocol in Europe.</li>
+				</ul>
+				<a href="https://en.wikipedia.org/wiki/TAT-8#Impact">(Source)</a>
+				<h2>Usage of Fibre-Optic Worldwide</h2>
+				<ul>
+					<li>Ever since the first submarine cables, the production of fibre-optic cables has been more cost-efficient than using the old copper cables.</li>
+					<li>This lead to Internet Providers around the world installing fibre-optic cabling not only under water, but on land as well.</li>
+					<li>As such, we are able to take full advantage of fibre-optic speeds without many bottlenecks in the form of copper cabling.</li>
+				</ul>
+			</div>
 			
 			<div class="ui card">
 				<div class="image">
