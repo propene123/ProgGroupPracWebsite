@@ -1,6 +1,7 @@
 "use strict";
 $(function(){
 
+$("#siri").hide();
 $("#alexa").hide();
 $("#bixby").hide();
 
@@ -31,11 +32,11 @@ searchFields: ["tags","title"],
 fullTextSearch: true
 });
 $("#drop").dropdown({
-values: [{
-    name: "Siri",
-    value: "siri",
-    selected: true
-
+values: [
+{
+        name: "Overview",
+        value: "overview",
+        selected: true
 },
 {
     name: "Alexa",
@@ -44,7 +45,13 @@ values: [{
 {
     name: "Bixby",
     value: "bixby"
+},
+{
+    name: "Siri",
+    value: "siri",
+
 }
+
 ],
 action: function(text, value){
     switch (value){
@@ -52,17 +59,26 @@ action: function(text, value){
             $("#siri").show();
             $("#alexa").hide();
             $("#bixby").hide();
+            $("#overview").hide();
             break;
         case "alexa":
             $("#siri").hide();
             $("#alexa").show();
             $("#bixby").hide();
+            $("#overview").hide();
             break;
         case "bixby":
             $("#alexa").hide();
             $("#siri").hide();
             $("#bixby").show();
+            $("#overview").hide();
             break;
+        case "overview":
+        $("#overview").show();
+        $("#alexa").hide();
+        $("#siri").hide();
+        $("#bixby").hide();
+
     }
     $("#drop").dropdown("set selected",value);
     $("#drop").dropdown("toggle");
